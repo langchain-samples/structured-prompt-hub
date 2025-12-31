@@ -1,0 +1,12 @@
+[project]
+name = "test-prompts-python"
+version = "1.0.0"
+description = "LangSmith Structured Prompt Test Suite - Python Examples"
+requires-python = ">=3.10"
+dependencies = [
+    "langsmith>=0.5.0",
+    "langchain-core>=1.2.0",
+    "langchain-openai>=1.1.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+]

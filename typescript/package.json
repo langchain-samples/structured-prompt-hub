@@ -6,8 +6,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "sentiment": "tsx src/sentiment-evaluator.ts",
-    "sentiment:model": "tsx src/sentiment-evaluator-with-model.ts"
+    "sentiment": "tsx sentiment-evaluator.ts",
+    "sentiment:model": "tsx sentiment-evaluator-with-model.ts"
   },
   "keywords": [
     "langsmith",
