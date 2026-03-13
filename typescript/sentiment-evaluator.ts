@@ -1,5 +1,11 @@
-import "dotenv/config";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import dotenv from "dotenv";
 import { push as hubPush } from "langchain/hub";
+
+// Load .env from project root (same as Python scripts)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.resolve(__dirname, "..", ".env") });
 import { StructuredPrompt } from "@langchain/core/prompts";
 
 // ============================================================================
@@ -70,6 +76,7 @@ async function pushToHub() {
     console.log("📤 Pushing sentiment evaluator prompt to hub...");
     
     // Push ONLY the structured prompt, no model/chain
+    // LangChain hub.push(repoFullName, runnable, options) — runnable must be 2nd arg so it serializes with "id"
     const url = await hubPush("sentiment-evaluator", structuredPrompt, {
       apiKey: LANGSMITH_API_KEY,
       apiUrl: "https://api.smith.langchain.com",
